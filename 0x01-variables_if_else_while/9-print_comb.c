@@ -5,14 +5,20 @@
 */
 int main(void)
 {
-	int alphabet;
+	int n;
 
-	alphabet = 'z';
+	n = '0';
 
-	while (alphabet >= 'a')
+	while (n <= '9')
 	{
-		putchar(alphabet);
-		--alphabet;
+		putchar(n);
+		if (n != '9')
+	{
+		putchar(',');
+		putchar(' ');
+	}
+
+		n++;
 	}
 	putchar('\n');
 
