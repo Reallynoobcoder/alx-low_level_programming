@@ -4,7 +4,7 @@
 * @i: The integer to be computed.
 * Return: The absolute value of the integer.
 */
-int _abs(i)
+int _abs(int i)
 {
 	if (i < 0)
 	{
