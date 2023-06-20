@@ -1,9 +1,9 @@
 #include "main.h"
 /**
-*print - alphabet using _putchar
+*print_alphabet - prints the alphabet, in lowercase, followed by a new line.
 *Return: 0
 */
-void print_alphabet()
+void print_alphabet(void)
 {
 	char c;
 
