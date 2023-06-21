@@ -12,32 +12,32 @@ void print_times_table(int num)
 	{
 		for (ini = 0; ini <= num; ini++)
 		{
-			putchar('0');
+			_putchar('0');
 
 			for (mini = 1; mini <= num; mini++)
 			{
-				putchar(',');
-				putchar(' ');
+				_putchar(',');
+				_putchar(' ');
 
 				wini = ini * mini;
 
 				if (wini <= 99)
-					putchar(' ');
+					_putchar(' ');
 				if (wini <= 9)
-					putchar(' ');
+					_putchar(' ');
 
 				if (wini >= 100)
 				{
-					putchar((wini / 100) + '0');
-					putchar(((wini / 10)) % 10 + '0');
+					_putchar((wini / 100) + '0');
+					_putchar(((wini / 10)) % 10 + '0');
 				}
 				else if (wini <= 99 && wini >= 10)
 				{
-					putchar((wini / 10) + '0');
+					_putchar((wini / 10) + '0');
 				}
-				putchar((wini % 10) + '0');
+				_putchar((wini % 10) + '0');
 			}
-			putchar('\n');
+			_putchar('\n');
 		}
 	}
 }
