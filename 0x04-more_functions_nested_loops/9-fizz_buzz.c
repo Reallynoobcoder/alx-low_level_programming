@@ -25,7 +25,7 @@ int main(void)
 		{
 			printf("Fizz");
 		}
-		else (i != 100)
+		else
 		{
 			printf("%d", i);
 		}
