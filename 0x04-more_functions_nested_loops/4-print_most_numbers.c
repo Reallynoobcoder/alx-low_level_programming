@@ -3,7 +3,7 @@
 * print_numbers - Prints numbers from 0 to 9 excluding 2 and 4
 */
 
-void print_numbers(void)
+void print_most_numbers(void);
 {
 	int n = 0;
 
