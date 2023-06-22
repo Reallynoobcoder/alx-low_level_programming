@@ -3,18 +3,19 @@
 * print_number - prints a number
 * @n: Input number
 */
-
 void print_number(int n)
 {
-	unsigned int num = n;
+	unsigned int a;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		num = -num;
+		a = -n;
 	}
-	if ((num / 10) > 0)
-		print_number(n / 10);
+	else
+		a = n;
+	if (a / 10)
+		print_number(a / 10);
 
-	_putchar((n % 10) + '0');
+	_putchar(a % 10 + '0');
 }
