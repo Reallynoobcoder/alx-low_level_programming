@@ -14,8 +14,8 @@ void print_numbers(void)
 			n++;
 			continue;
 		}
-		putchar(n + '0');
+		_putchar(n + '0');
 		n++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
