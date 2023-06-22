@@ -31,4 +31,5 @@ void print_number(int n)
 		ex /= 10;
 	}
 	_putchar(b % 10 + '0');
+	_putchar('\n');
 }
