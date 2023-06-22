@@ -6,14 +6,14 @@
 
 int main(void)
 {
-	long int n = 612852475143;
+	long long int n = 612852475143;
 	long int i;
 
 	for (i = 2; i <= n; i++)
 		for (; n % i == 0; n /= i)
 		{
 		}
-	printf("%ld ", i);
+	printf("%lld ", i);
 	printf("\n");
 
 	return (0);
