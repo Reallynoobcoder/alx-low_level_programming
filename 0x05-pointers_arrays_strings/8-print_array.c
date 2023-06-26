@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
 * print_array - Prints the elements of an integer array.
 * @a: Pointer to the integer array.
@@ -9,13 +9,13 @@ void print_array(int *a, int n)
 {
 	int i;
 
-	for (i = 0; a[i] != a[n]; i++)
+	for (i = 0; i < n; i++)
 	{
 		printf("%d", a[i]);
 		if (a[i] != a[n - 1])
 		{
-			printf(", ", a[i]);
+			printf(", ");
 		}
 	}
-	_putchar('\n');
+	printf("\n");
 }
