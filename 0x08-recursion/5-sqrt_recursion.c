@@ -1,20 +1,17 @@
 #include "main.h"
 /**
  * check - checks the input number from n to the base
- * @n: number is squared and compared against base
- * Return: natural square root of number base
+ * @n: number is squared and compared with b
+ * @b: b number to check
+ * Return: natural square root of number b
  */
-int check(int n)
+int check(int n, int b)
 {
-	if (n * n == base)
-	{
+	if (n * n == b)
 		return (n);
-	}
-	if (n * n > base)
-	{
+	if (n * n > b)
 		return (-1);
-		return (check(n + 1, base));
-	}
+	return (check(n + 1, b));
 }
 /**
  * _sqrt_recursion - return the natural square root of a number n.
