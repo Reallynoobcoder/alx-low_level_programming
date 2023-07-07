@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <ctype.h>
 /**
- * main - Entry point of the program
- * @argc: Number of command-line arguments
- * @argv: Array of command-line arguments
- * Return: 0 on success, 1 on error
- */
-
+* main - Entry point of the program
+* @argc: Number of command-line arguments
+* @argv: Array of command-line arguments
+* Return: 0 on success, 1 on error
+*/
 int main(int argc, char *argv[])
 {
 	int i, j, sum = 0;
@@ -28,9 +27,12 @@ int main(int argc, char *argv[])
 					printf("Error\n");
 					return (1);
 				}
+
 			}
+
 			sum += atoi(argv[i]);
 		}
 		printf("%d\n", sum);
-	}
+		}
+		return (0);
 }
