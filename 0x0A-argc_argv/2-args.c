@@ -7,7 +7,7 @@
  * Return: 0 (indicating successful execution)
 */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int i;
 
