@@ -41,6 +41,16 @@ int _strlen(char *s)
 	return (l);
 }
 
+/**
+* str_concat - Concatenates two strings.
+* @s1: Pointer to the first input string.
+* @s2: Pointer to the second input string.
+*
+* Return: Pointer to the concatenated string.
+*         If either s1 or s2 is NULL, treat it as an empty string.
+*         Returns NULL on failure (if memory allocation fails).
+*/
+
 char *str_concat(char *s1, char *s2)
 {
 	char *str;
@@ -62,4 +72,6 @@ char *str_concat(char *s1, char *s2)
 
 	_strcat(str, s1);
 	_strcat(str, s2);
+
+	return (str);
 }
