@@ -1,46 +1,75 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 /**
+ * count_words - counts words in a given string
+ * @str: the string to count words from
+ *
+ * Return: the number of words
+*/
+
+int count_words(char *str)
+{
+	int count = 0;
+	int i = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (!isspace(str[i]) && (i == 0 || isspace(str[i - 1])))
+		{
+			count++;
+		}
+	}
+
+	if (count == 0 && strlen(str) == 1 && str[0] == ' ')
+	{
+		count = 0;
+	}
+
+	return (count);
+}
+
+/**
  * strtow - splits a string into words.
  * @str: the string to split
+ *
  * Return: the pointer to an array containing words.
  */
 
 char **strtow(char *str)
 {
-	int i = 0, j = 0, word_count = 0, len, word_len = 0;
+	int num_words, i = 0, j = 0, start, end, word_length;
+	char *word;
 	char **words;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || strlen(str) == 0 || count_words(str) == 0)
 		return (NULL);
-	len = strlen(str);
-	for (i = 0; i < len; i++)
-		if (!isspace(str[i]) && (i == 0 || isspace(str[i - 1])))
-			word_count++;
 
-	words = malloc((word_count + 1) * sizeof(char *));
-	if (words == NULL)
-		return (NULL);
-	for (i = 0; i < len; i++)
-	{
-		if (!isspace(str[i]))
-		{
-			while (i + word_len < len && !isspace(str[i + word_len]))
-				word_len++;
-			words[j] = malloc((word_len + 1) * sizeof(char));
-			if (words[j] == NULL)
-				for (i = 0; i < j; i++)
-					free(words[i]);
-			free(words);
+		num_words = count_words(str);
+		words = malloc(sizeof(char *) * (num_words + 1));
+		if (words == NULL)
 			return (NULL);
+		while (str[i] != '\0' && j < num_words)
+		{
+			start = i;
+			while (!isspace(str[i]) && str[i] != '\0')
+				i++;
+			end = i;
+			word_length = end - start;
+			if (word_length > 0)
+			{
+				word = malloc(sizeof(char) * (word_length + 1));
+				if (word == NULL)
+					return (NULL);
+				strncpy(word, str + start, word_length);
+				word[word_length] = '\0';
+				words[j] = word;
+				j++;
+			}
+			else
+				i++;
 		}
-		strncpy(words[j], &str[i], word_len);
-		words[j][word_len] = '\0';
-		j++;
-		i += word_len;
-	}
-	words[j] = NULL;
-	return (words);
+		words[j] = NULL;
+		return (words);
 }
