@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+
 /**
  * count_words - counts words in a given string
  * @str: the string to count words from
  *
  * Return: the number of words
-*/
-
+ */
 int count_words(char *str)
 {
 	int count = 0;
@@ -26,7 +26,6 @@ int count_words(char *str)
 	{
 		count = 0;
 	}
-
 	return (count);
 }
 
@@ -46,30 +45,33 @@ char **strtow(char *str)
 	if (str == NULL || strlen(str) == 0 || count_words(str) == 0)
 		return (NULL);
 
-		num_words = count_words(str);
-		words = malloc(sizeof(char *) * (num_words + 1));
-		if (words == NULL)
-			return (NULL);
-		while (str[i] != '\0' && j < num_words)
+	num_words = count_words(str);
+	words = malloc(sizeof(char *) * (num_words + 1));
+	if (words == NULL)
+		return (NULL);
+
+	while (str[i] != '\0' && j < num_words)
+	{
+		start = i;
+		while (!isspace(str[i]) && str[i] != '\0')
+			i++;
+		end = i;
+		word_length = end - start;
+
+		if (word_length > 0)
 		{
-			start = i;
-			while (!isspace(str[i]) && str[i] != '\0')
-				i++;
-			end = i;
-			word_length = end - start;
-			if (word_length > 0)
-			{
-				word = malloc(sizeof(char) * (word_length + 1));
-				if (word == NULL)
-					return (NULL);
-				strncpy(word, str + start, word_length);
-				word[word_length] = '\0';
-				words[j] = word;
-				j++;
-			}
-			else
-				i++;
+			word = malloc(sizeof(char) * (word_length + 1));
+			if (word == NULL)
+				return (NULL);
+
+			strncpy(word, str + start, word_length);
+			word[word_length] = '\0';
+			words[j] = word;
+			j++;
 		}
-		words[j] = NULL;
-		return (words);
+		else
+			i++;
+	}
+	words[j] = NULL;
+	return (words);
 }
