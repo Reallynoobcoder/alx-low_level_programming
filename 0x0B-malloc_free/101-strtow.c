@@ -10,7 +10,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, j = 0, word_count = 0, len;
+	int i = 0, j = 0, word_count = 0, len, word_len = 0;
 	char **words;
 
 	if (str == NULL || *str == '\0')
@@ -27,8 +27,7 @@ char **strtow(char *str)
 	{
 		if (!isspace(str[i]))
 		{
-			int word_len = 0;
-				while (i + word_len < len && !isspace(str[i + word_len]))
+			while (i + word_len < len && !isspace(str[i + word_len]))
 				word_len++;
 			words[j] = malloc((word_len + 1) * sizeof(char));
 			if (words[j] == NULL)
