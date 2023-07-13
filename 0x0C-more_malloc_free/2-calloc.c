@@ -1,6 +1,5 @@
 #include <main.h>
 #include <string.h>
-
 /**
  * _calloc - allocates memory for an initialized buffer
  * @nmemb: number of memory bytes
@@ -10,7 +9,7 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ptr;
+	void *ptr;
 
 	if(nmemb == 0 || size == 0)
 		return (NULL);
