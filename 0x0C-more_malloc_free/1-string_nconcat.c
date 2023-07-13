@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * string_nconcat - concatenate two strings up to n bytes.
  * @s1: source string
@@ -27,8 +28,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (ptr == NULL)
 		return (NULL);
 
-	ptr = memcpy(dest, s1, strlen(s1));
-	ptr = strncat(dest, s2, n);
+	ptr = memcpy(ptr, s1, strlen(s1));
+	ptr = strncat(ptr, s2, n);
 	ptr[len - 1] = '\0';
 
 	return (ptr);
