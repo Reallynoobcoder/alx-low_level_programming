@@ -18,18 +18,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		return ("");
 
-	if (strlen(s2) <= n)
-		len = strlen(s1) + strlen(s2)  + 1;
-	else
-		len = strlen(s1) + n + 1;
-
+	len = strlen(s1) + (strlen(s2) > n ? n : strlen(s2)) + 1;
 	ptr = malloc(sizeof(char) * len);
 
 	if (ptr == NULL)
 		return (NULL);
 
-	ptr = memcpy(ptr, s1, strlen(s1));
-	ptr = strncat(ptr, s2, n);
+	memcpy(ptr, s1, strlen(s1));
+	strncat(ptr, s2, n);
 	ptr[len - 1] = '\0';
 
 	return (ptr);
