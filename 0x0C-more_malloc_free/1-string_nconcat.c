@@ -24,8 +24,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (ptr == NULL)
 		return (NULL);
 
-	strncpy(ptr, s1, len);
-	strncat(ptr, s2, n);
+	if (strlen(s2) > n)
+		strncpy(ptr + strlen(s1), s2, n);
+	else
+		strncpy(ptr + strlen(s1), s2, strlen(s2));
+
 	ptr[len - 1] = '\0';
 
 	return (ptr);
