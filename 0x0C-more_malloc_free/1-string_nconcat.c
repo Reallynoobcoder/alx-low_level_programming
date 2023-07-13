@@ -21,7 +21,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len = strlen(s1) + (strlen(s2) > n ? n : strlen(s2)) + 1;
 	ptr = malloc(sizeof(char) * len);
 
-	strncpy(ptr, s1, strlen(s1));
+	strncpy(ptr, s1, len);
 	strncat(ptr, s2, n);
 
 	ptr[len - 1] = '\0';
