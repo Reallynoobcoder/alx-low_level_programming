@@ -3,37 +3,39 @@
 #include <string.h>
 #include <stdlib.h>
 /**
-  * new_dog - creates a new struct of type dog
-  * @name: struct parameter name
-  * @age: struct parameter age
-  * @owner: struct parameter owner
-  * Return: returns pointer to buffer of datatype dog
+ * new_dog - creates a new struct of type dog
+ * @name: struct parameter name
+ * @age: struct parameter age
+ * @owner: struct parameter owner
+ * Return: returns pointer to buffer of datatype dog
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newdog = malloc(sizeof(dog_t));
+	dog_t *dest;
 
-	if (newdog == NULL)
+	dest = malloc(sizeof(dog_t));
+
+	if (dest == NULL)
+		return (NULL);
+
+	dest->name = malloc(sizeof(char) * (strlen(name) + 1));
+
+	if (dest->name == NULL)
+		return (NULL);
+
+	dest->owner = malloc(sizeof(char) * (strlen(owner) + 1));
+
+	if (dest->owner == NULL)
 	{
-		free(newdog);
+		free(dest->name);
+		free(dest);
 		return (NULL);
 	}
+	strcpy(dest->name, name);
 
-	newdog->name = malloc(strlen(name) + 1);
-	newdog->owner = malloc(strlen(owner) + 1);
+	strcpy(dest->owner, owner);
 
-	if (newdog->name == NULL || newdog->owner == NULL)
-	{
-		free(newdog->owner);
-		free(newdog->name);
-		free(newdog->name);
-		return (NULL);
-	}
+	dest->age = age;
 
-	strcpy(newdog->name, name);
-	strcpy(newdog->owner, owner);
-	newdog->age = age;
-
-	return (newdog);
+	return (dest);
 }
