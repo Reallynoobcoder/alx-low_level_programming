@@ -9,6 +9,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fl;
+	ssize_t wr;
 
 	if (filename == NULL)
 		return (-1);
@@ -23,7 +24,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		close(fl);
 		return (-1);
 	}
-	ssize_t wr = write(fl, text_content, strlen(text_content));
+	wr = write(fl, text_content, strlen(text_content));
 
 	if (wr == -1)
 	{
