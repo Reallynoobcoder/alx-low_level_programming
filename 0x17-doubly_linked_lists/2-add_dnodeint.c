@@ -7,23 +7,24 @@
  *
  * Return: The address of the new element, or NULL if it failed.
  */
- 
+
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-    dlistint_t *node;
-    node = malloc(sizeof(dlistint_t));
-    
-    if (node == NULL)
-        return NULL;
+	dlistint_t *node;
 
-    node->n = n;
-    node->next = *head;
-    node->prev = NULL;
+	node = malloc(sizeof(dlistint_t));
 
-    if (*head != NULL)
-        (*head)->prev = node;
+	if (node == NULL)
+		return (NULL);
 
-    *head = node;
+	node->n = n;
+	node->next = *head;
+	node->prev = NULL;
 
-    return node;
+	if (*head != NULL)
+		(*head)->prev = node;
+
+	*head = node;
+
+	return (node);
 }
